@@ -46,7 +46,7 @@ TARGET_KRAIT_BIONIC_PLDSIZE   := 64
 # Kernel information
 BOARD_KERNEL_BASE  := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE  := androidboot.hardware=qcom user_debug=31 androidboot.baseband=msm msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=400M
+BOARD_KERNEL_CMDLINE  := androidboot.hardware=qcom user_debug=31 androidboot.baseband=msm msm_rtb.filter=0x3F androidboot.bootdevice=msm_sdcc.1 ehci-hcd.park=3 vmalloc=400M
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
 # Use legacy MMAP for pre-lollipop blobs
@@ -144,32 +144,15 @@ BOARD_SEPOLICY_DIRS += \
 
 BOARD_SEPOLICY_UNION += \
     file_contexts \
-    property_contexts \
-    te_macros \
-    bluetooth_loader.te \
-    bridge.te \
-    camera.te \
-    device.te \
-    dhcp.te \
-    domain.te \
-    drmserver.te \
-    file.te \
-    kickstart.te \
-    init.te \
-    mac_update.te \
-    mediaserver.te \
-    mpdecision.te \
-    netmgrd.te \
-    qmux.te \
-    rild.te \
-    rmt.te \
-    surfaceflinger.te \
-    system.te \
-    tee.te \
-    thermald.te \
-    ueventd.te \
     vold.te \
-    wpa_supplicant.te
+    netmgrd.te \
+    thermal-engine.te \
+    rmt_storage.te \
+    mpdecision.te \
+    mm-qcamerad.te \
+    location.te \
+    sdcardd.te \
+    system_app.te
 
 # inherit from the proprietary version
 -include vendor/sony/huashan/BoardConfigVendor.mk
