@@ -546,9 +546,13 @@ service system_monitor /system/bin/system_monitor
     class core
     user root
 
-service rmt_storage /system/bin/rmt_storage
+service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
     class core
     user root
+	
+on property:ro.emmc=1
+    start rmt_storage
+    start ta_qmi_service
 
 service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
     class main
