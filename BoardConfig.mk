@@ -145,7 +145,6 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SEPOLICY_UNION += \
     file_contexts \
     vold.te \
-    netmgrd.te \
     thermal-engine.te \
     rmt_storage.te \
     mpdecision.te \
